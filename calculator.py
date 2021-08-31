@@ -1,5 +1,5 @@
 # A program to get a working calculator application on the desktop.
-
+# Referred from https://www.geeksforgeeks.org/python-simple-gui-calculator-using-tkinter/
 import tkinter as tk
 import math as math
 
