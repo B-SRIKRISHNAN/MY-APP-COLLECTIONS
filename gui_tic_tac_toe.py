@@ -1,4 +1,5 @@
 import tkinter as tk
+import random as rd
 
 turn = 1
 result = 0
@@ -52,6 +53,7 @@ def game():
             set_pos.append(temp)
 
         print(set_pos)
+        print(turn)
         if [3, 0, 0] in set_pos:
             turn_label.config(text='User is the winner!!')
             turn_label.place(x=150)
@@ -76,26 +78,70 @@ def game():
                     return()
 
         else:
-            # if set_pos[7] == [2, 1, 0]:
-            #     if btn_list[1]['text'] == '':
-            #         btn_list[1]['text'] = 'o'
-            #         turn += 1
-            #         return()
-            # else:
-            # if btn_list[1]['text'] == '':
-            #     btn_list[1]['text'] = 'o'
-            #     turn += 1
-            #     return()
+
+            if (set_pos[1] == [1, 1, 1] or set_pos[4] == [1, 1, 1]) and (set_pos[7] == [1, 1, 1] or set_pos[6]
+                                                                         == [1, 1, 1]) and turn == 2:
+                if btn_list[7]['text'] == '' and set_pos[1] == [1, 1, 1]:
+                    btn_list[7]['text'] = 'O'
+                    turn += 1
+                    return()
+                elif btn_list[5]['text'] == '' and set_pos[4] == [1, 1, 1]:
+                    btn_list[5]['text'] = 'O'
+                    turn += 1
+                    return()
+                else:
+                    for k in range(9):
+                        if btn_list[k]['text'] == '':
+                            btn_list[k]['text'] = 'O'
+                            turn += 1
+                            return()
+            elif set_pos[4] == [0, 1, 2] and turn == 2:
+                if btn_list[3]['text'] == '':
+                    btn_list[3]['text'] = 'O'
+                    turn += 1
+                    return()
+
+                else:
+                    for k in range(9):
+                        if btn_list[k]['text'] == '':
+                            btn_list[k]['text'] = 'O'
+                            turn += 1
+                            return()
+
+            elif set_pos[4] == [1, 1, 1] and set_pos[1] == [1, 1, 1] and turn == 2:
+                if btn_list[2]['text'] == "" and set_pos[0] == [1, 0, 2] and set_pos[5] == [1, 0, 2]:
+                    btn_list[2]['text'] = 'O'
+                    turn += 1
+                    return ()
+                elif set_pos[0] == [1, 0, 2] and set_pos[3] == [1, 0, 2] and btn_list[0]["text"] == '':
+                    btn_list[0]['text'] = 'O'
+                    turn += 1
+                    return ()
+                elif set_pos[2] == [1, 0, 2] and set_pos[5] == [1, 0, 2] and btn_list[8]["text"] == '':
+                    btn_list[8]['text'] = 'O'
+                    turn += 1
+                    return ()
+                elif set_pos[2] == [1, 0, 2] and set_pos[3] == [1, 0, 2] and btn_list[6]["text"] == '':
+                    btn_list[6]['text'] = 'O'
+                    turn += 1
+                    return ()
+                else:
+                    for k in range(9):
+                        if btn_list[k]['text'] == '':
+                            btn_list[k]['text'] = 'O'
+                            turn += 1
+                            return()
+
             # elif btn_list[0]['text'] == '':
             #     btn_list[0]['text'] = 'o'
             #     turn += 1
             #     return()
-            # else:
-            for k in range(8, 0, -1):
-                if btn_list[k]['text'] == '':
-                    btn_list[k]['text'] = 'O'
-                    turn += 1
-                    return()
+            else:
+                for k in range(9):
+                    if btn_list[k]['text'] == '':
+                        btn_list[k]['text'] = 'O'
+                        turn += 1
+                        return()
 
 
 def click1():
